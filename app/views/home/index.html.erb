@@ -1,2 +1,7 @@
-<h2>Home</h2>
-<p>This is the home page.  In a real app, there would be some interesting content here.</p>
+<h2>Projects</h2>
+<% if User.nil? %>
+  <p>Please log in first.</p>
+<% else %>
+<%= User %>
+  <%= render :template => 'projects/index' %>
+<% end %>

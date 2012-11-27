@@ -1,4 +1,8 @@
 Projman::Application.routes.draw do
+  resources :tasks
+
+  resources :projects
+
   authenticated :user do
     root :to => 'home#index'
   end

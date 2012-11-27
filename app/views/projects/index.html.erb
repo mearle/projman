@@ -1,0 +1,39 @@
+<br>
+<table>
+ <% if @projects %>
+  <tr>
+    <th>Project name</th>
+    <th>Assigned to</th>
+    <th>Start date</th>
+    <th>Date due</th>
+    <th>Progress</th>
+    <th>About</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.proj_name %></td>
+    <td><%= project.user_id %></td>
+    <td><%= project.start_date %></td>
+    <td><%= project.date_due %></td>
+    <td><%= project.progress %></td>
+    <td><%= project.about %></td>
+    <td><%= link_to 'Show', project %></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+<% else %>
+   <b>No records found</b>
+<% end %>
+
+</table>
+<br />
+<div>
+
+<%= link_to 'New Project', new_project_path %>
+
+</div>
